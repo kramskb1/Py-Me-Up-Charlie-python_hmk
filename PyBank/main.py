@@ -18,4 +18,4 @@ minimumdifference=df['Dif'].min(axis=0)
 print(minimumdifference)
 print(df.iloc [25])
 print(df.iloc [44])
-#$ python BenjaminKramskoiPythonHW.py > output.txt 
+
