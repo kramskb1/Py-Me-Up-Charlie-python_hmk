@@ -1,0 +1,29 @@
+
+
+import os
+import csv
+import pandas as pd
+df=pd.read_csv(r"C:\Users\benkr\OneDrive\Desktop\Resources\election_data.csv")df=pd.read_csv(csvPath)
+‘I initially used df = pd.read_csv (r”C:\Users\benkr\election_data.csv”).When I was doing this assignment I had trouble creating a relative path.
+index=df.index
+print(df.count())
+dfc=df.groupby('Candidate').count()
+dfc.sort_values ('Voter ID', axis=0, ascending=False,inplace=True)
+total=df.count()
+dfp=dfc['Voter ID'].apply(lambda x: 100*x/total)
+dfp['Percent']=pd.Series([round(val, 3) for val in dfp['Voter ID']], index = dfp.index)
+dfp['Count']=dfc['Voter ID']
+print(dfc)
+print(dfp)
+dfp.drop(index=['Voter Id'], )
+for items in dfp.iteritems():
+    print ( items)
+print ("Election Results")
+print ("-------------------------")
+print ("Total Votes= "+ str(total[1]))
+print ("-------------------------")
+
+for index,row in  dfp.iterrows() : print(index+": " + str(row['Percent']) + "% ("+str(row['Count'].astype(np.int64)) + ")")
+
+print ("-------------------------")
+print("Winner= "+winner)
